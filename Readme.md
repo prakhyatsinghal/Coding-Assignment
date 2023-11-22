@@ -11,10 +11,7 @@ The Question Paper Generator is a Node.js application that facilitates the gener
   - [3. `services/questionPaperGenerator.js`](#3-servicesquestionpapergeneratorjs)
   - [4. `app.js`](#4-appjs)
 - [Usage](#usage)
-- [Error Handling](#error-handling)
-- [Logging](#logging)
-- [Future Improvements](#future-improvements)
-- [Conclusion](#conclusion)
+
 
 ## Overview
 
@@ -76,9 +73,10 @@ The main entry point of the application, utilizing Express.js to create an API e
        "hard": 30
      }
    }
- 5. **Example Response**
-    ```json
-{
+
+5. **Example Response:**
+   ```json
+   {
   "success": true,
   "questionPaper": [
     {
@@ -90,4 +88,4 @@ The main entry point of the application, utilizing Express.js to create an API e
     },
     // ... other questions
   ]
-}
+} 
