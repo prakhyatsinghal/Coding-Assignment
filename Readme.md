@@ -1,19 +1,93 @@
-# EasyNotes Application
+# Question Paper Generator
 
-Build a Restful CRUD API for a simple Note-Taking application using Node.js, Express and MongoDB.
+The Question Paper Generator is a Node.js application that facilitates the generation of question papers based on specified criteria such as total marks and difficulty distribution. The application is designed to handle various edge cases and provides meaningful logs for error tracking.
 
-## Steps to Setup
+## Table of Contents
 
-1. Install dependencies
+- [Overview](#overview)
+- [Components](#components)
+  - [1. `data/questionStore.js`](#1-dataquestionstorejs)
+  - [2. `models/question.js`](#2-modelsquestionjs)
+  - [3. `services/questionPaperGenerator.js`](#3-servicesquestionpapergeneratorjs)
+  - [4. `app.js`](#4-appjs)
+- [Usage](#usage)
+- [Error Handling](#error-handling)
+- [Logging](#logging)
+- [Future Improvements](#future-improvements)
+- [Conclusion](#conclusion)
 
-```bash
-npm install
-```
+## Overview
 
-2. Run Server
+The Question Paper Generator is a Node.js application that generates a question paper based on specified criteria such as total marks and difficulty distribution. The application is designed to handle various edge cases and provides meaningful logs for error tracking.
 
-```bash
-node server.js
-```
+## Components
 
-You can browse the apis at <http://localhost:3000>
+### 1. `data/questionStore.js`
+
+This module loads a set of questions from a JSON file (`sampleData.json`) and exports them for use in the Question Paper Generator.
+
+### 2. `models/question.js`
+
+Defines the `Question` class, representing a question with properties like question text, subject, topic, difficulty, and marks.
+
+### 3. `services/questionPaperGenerator.js`
+
+The core module responsible for generating a question paper. It includes the following key methods:
+
+- #### `constructor()`
+  Initializes the QuestionPaperGenerator instance with the loaded question store.
+
+- #### `generateQuestionPaper(totalMarks, distribution)`
+  Generates a question paper based on the provided total marks and difficulty distribution. Handles various edge cases and logs meaningful messages for error tracking.
+
+- #### `getAverageMarks(questions)`
+  Calculates and returns the average marks for a set of questions.
+
+- #### `filterQuestionsByDifficulty(difficulty)`
+  Filters questions based on the provided difficulty.
+
+- #### `getRandomQuestions(questions, count)`
+  Randomly selects a specified number of questions from the given array.
+
+### 4. `app.js`
+
+The main entry point of the application, utilizing Express.js to create an API endpoint for generating question papers. The application follows best practices for error handling and logging.
+
+## Usage
+
+1. **Installation:**
+   - Clone the repository: `git clone https://github.com/prakhyatsinghal/Coding-Assignment`
+   - Install dependencies: `npm install`
+
+2. **Run the Application:**
+   - Start the application: `node app.js`
+
+3. **API Endpoint:**
+   - POST `/api/generate-question-paper`
+   - Body should include `totalMarks` and `difficultyDistribution` parameters.
+
+4. **Example Request:**
+   ```json
+   {
+     "totalMarks": 100,
+     "difficultyDistribution": {
+       "easy": 20,
+       "medium": 50,
+       "hard": 30
+     }
+   }
+ 5. **Example Response**
+    ```json
+{
+  "success": true,
+  "questionPaper": [
+    {
+      "question": "Define work done.",
+      "subject": "Physics",
+      "topic": "Mechanics",
+      "difficulty": "Easy",
+      "marks": 5
+    },
+    // ... other questions
+  ]
+}

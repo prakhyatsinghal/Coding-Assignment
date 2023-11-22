@@ -1,10 +1,10 @@
 {
-  "name": "node-easy-notes-app",
+  "name": "node-question-paper-generator",
   "version": "1.0.0",
-  "description": "Never miss a thing in Life. Take notes quickly. Organize and keep track of all your notes.",
+  "description": "The Question Paper Generator is a Node.js application that facilitates the generation of question papers based on specified criteria such as total marks and difficulty distribution. The application is designed to handle various edge cases and provides meaningful logs for error tracking.",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon app.js"
   },
   "keywords": [
     "Express",
