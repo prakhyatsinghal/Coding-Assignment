@@ -60,7 +60,7 @@ The main entry point of the application, utilizing Express.js to create an API e
    - Start the application: `node app.js`
 
 3. **API Endpoint:**
-   - POST `/api/generate-question-paper`
+   - POST `http://localhost:3000/api/generate-question-paper`
    - Body should include `totalMarks` and `difficultyDistribution` parameters.
 
 4. **Example Request:**
@@ -74,18 +74,4 @@ The main entry point of the application, utilizing Express.js to create an API e
      }
    }
 
-5. **Example Response:**
-   ```json
-   {
-  "success": true,
-  "questionPaper": [
-    {
-      "question": "Define work done.",
-      "subject": "Physics",
-      "topic": "Mechanics",
-      "difficulty": "Easy",
-      "marks": 5
-    },
-    // ... other questions
-  ]
-} 
+
